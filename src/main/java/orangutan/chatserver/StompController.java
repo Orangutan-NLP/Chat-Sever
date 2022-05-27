@@ -12,6 +12,6 @@ public class StompController {
     @MessageMapping("/message")
     @SendTo("/sub/message")
     public Message getMessage(@Payload Message message) throws Exception{
-        return message;
+        return new Message(message.getUserName(), message.getMessage());
     }
 }
